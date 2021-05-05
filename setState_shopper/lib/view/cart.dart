@@ -3,15 +3,27 @@ import 'package:flutter/material.dart';
 import '../model/item_model.dart';
 
 class MyCart extends StatefulWidget {
+  final List<Item> cart;
+
+  const MyCart({Key key, this.cart}) : super(key: key);
+
   @override
   _MyCartState createState() => _MyCartState();
 }
 
 class _MyCartState extends State<MyCart> {
-  void onPressed(int index, List<Item> cart) {
+  List<Item> _cart;
+
+  void onPressed(int index) {
     setState(() {
-      cart.remove(cart[index]);
+      _cart.removeAt(index);
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _cart = widget.cart;
   }
 
   @override
@@ -35,7 +47,7 @@ class _MyCartState extends State<MyCart> {
                 padding: const EdgeInsets.all(32),
                 child: _CartList(
                   cart: cart,
-                  onPressed: (index) => onPressed(index, cart),
+                  onPressed: (index) => onPressed(index),
                 ),
               ),
             ),
@@ -50,6 +62,7 @@ class _MyCartState extends State<MyCart> {
 
 class _CartList extends StatefulWidget {
   const _CartList({Key key, this.cart, this.onPressed}) : super(key: key);
+
   final List<Item> cart;
   final Function(int) onPressed;
 
@@ -81,7 +94,9 @@ class __CartListState extends State<_CartList> {
 
 class _CartTotal extends StatelessWidget {
   const _CartTotal({Key key, this.cart}) : super(key: key);
+
   final List<Item> cart;
+
   @override
   Widget build(BuildContext context) {
     var hugeStyle =
@@ -97,7 +112,7 @@ class _CartTotal extends StatelessWidget {
             SizedBox(width: 24),
             TextButton(
               onPressed: () {
-                Scaffold.of(context).showSnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text('Buying not supported yet.')));
               },
               style: TextButton.styleFrom(primary: Colors.white),

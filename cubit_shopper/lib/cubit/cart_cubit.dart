@@ -1,5 +1,5 @@
-import 'package:bloc_shopper/cubit/cart_state.dart';
-import 'package:bloc_shopper/model/item_model.dart';
+import 'package:cubit_shopper/cubit/cart_state.dart';
+import 'package:cubit_shopper/model/item_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CartCubit extends Cubit<CartState> {
