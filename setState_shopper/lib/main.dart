@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Provider Demo',
+      title: 'SetState Demo',
       theme: appTheme,
       initialRoute: '/',
       routes: {

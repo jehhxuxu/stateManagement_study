@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
         create: (context) => CartCubit(),
         child: MaterialApp(
-          title: 'Provider Demo',
+          title: 'Cubit Demo',
           theme: appTheme,
           initialRoute: '/',
           routes: {
