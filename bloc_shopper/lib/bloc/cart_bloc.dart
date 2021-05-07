@@ -29,11 +29,5 @@ class CartBloc extends Bloc<CartBlocEvent, CartBlocState> {
       _cart.remove(event.item);
       yield CartBlocLoaded(_cart);
     }
-
-    if (event is RefreshListEvent) {
-      yield CartBlocLoading(_cart);
-      await Future.delayed(Duration(seconds: 2));
-      yield CartBlocLoaded(_cart);
-    }
   }
 }

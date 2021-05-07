@@ -7,13 +7,6 @@ abstract class CartBlocEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class RefreshListEvent extends CartBlocEvent {
-  RefreshListEvent();
-
-  @override
-  List<Object> get props => [];
-}
-
 class AddItemEvent extends CartBlocEvent {
   final Item item;
 

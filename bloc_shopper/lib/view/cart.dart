@@ -56,9 +56,12 @@ class _CartList extends StatelessWidget {
                 icon: Icon(Icons.remove_circle_outline),
                 onPressed: () => bloc.add(RemoveItemEvent(item)),
               ),
-              title: Text(
-                item.name,
-                style: itemNameStyle,
+              title: Hero(
+                tag: item.name,
+                child: Text(
+                  item.name,
+                  style: itemNameStyle,
+                ),
               ),
             );
           },

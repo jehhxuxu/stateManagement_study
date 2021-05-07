@@ -92,7 +92,10 @@ class _MyListItem extends StatelessWidget {
             ),
             SizedBox(width: 24),
             Expanded(
-              child: Text(item.name, style: textTheme),
+              child: Hero(
+                tag: item.name,
+                child: Text(item.name, style: textTheme),
+              ),
             ),
             SizedBox(width: 24),
             BlocBuilder<CartBloc, CartBlocState>(
